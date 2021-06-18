@@ -361,4 +361,4 @@ client.on(`guildMemberAdd`, function (member) {
 	member.roles.add(role);
 });
 
-client.login(token);
+client.login(process.env.BOT_TOKEN); // token
