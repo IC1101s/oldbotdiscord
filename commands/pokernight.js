@@ -2,9 +2,7 @@ module.exports = {
 	name: ['poker', 'pokerhight'],
 	description: 'Cоздаёт ссылку на подключение к игре Poker Night',
 	async execute(message) {
-		const {token} = process.env.BOT_TOKEN;
 		const fetch = require("node-fetch");
-
 		const {channel} = message.member.voice;
 
 	  if (!channel || channel.type !== "voice") return message.channel.send("❌ | Invalid channel specified!");
@@ -20,7 +18,7 @@ module.exports = {
 	      validate: null
 			}),
 			headers: {
-	      "Authorization": `Bot ${token}`,
+	      "Authorization": `Bot ${process.env.BOT_TOKEN}`,
 	      "Content-Type": "application/json"
 	    }
 		}).then(res => res.json())
